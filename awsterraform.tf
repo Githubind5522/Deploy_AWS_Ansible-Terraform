@@ -40,8 +40,8 @@ lifecycle {
 resource "aws_security_group" "packer_websg" {
   name = "security_group_for_packer_websg"
   ingress {
-    from_port = 8080
-    to_port = 8080
+    from_port = 80
+    to_port = 80
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -53,7 +53,7 @@ resource "aws_security_group" "elbsg" {
   name = "security_group_for_elb"
   ingress {
     from_port = 80
-    to_port = 8080
+    to_port = 80
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -74,7 +74,7 @@ resource "aws_elb" "elb1" {
   security_groups = ["${aws_security_group.elbsg.id}"]
   
   listener {
-    instance_port = 8080
+    instance_port = 80
     instance_protocol = "http"
     lb_port = 80
     lb_protocol = "http"
@@ -83,7 +83,7 @@ health_check {
     healthy_threshold = 2
     unhealthy_threshold = 2
     timeout = 3
-    target = "HTTP:8080/"
+    target = "HTTP:80/"
       interval = 30
   }
 cross_zone_load_balancing = true
