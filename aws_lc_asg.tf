@@ -14,9 +14,6 @@ resource "aws_autoscaling_group" "packer_asg" {
   max_size             = 3
   load_balancers = ["${aws_elb.terra-elb.id}"]
   health_check_type = "ELB"
-  tag {
-    Name = "Subnet-${count.index+1}"
-  }
   lifecycle {
 	create_before_destroy = true
   }
