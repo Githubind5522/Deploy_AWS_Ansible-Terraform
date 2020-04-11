@@ -29,7 +29,3 @@ resource "aws_elb" "terra-elb" {
     Name = "terraform-elb"
   }
 }
-
-output "elb-dns" {
-  value = "${aws_elb.terra-elb.dns_name}"
-}
