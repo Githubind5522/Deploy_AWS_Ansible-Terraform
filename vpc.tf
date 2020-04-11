@@ -1,3 +1,6 @@
+# GET THE LIST OF AVAILABILITY ZONES IN THE CURRENT REGION
+# Every AWS accout has slightly different availability zones in each region.
+data "aws_availability_zones" "all" {}
 # VPC
 resource "aws_vpc" "terra_vpc" {
   cidr_block       = "${var.vpc_cidr}"
