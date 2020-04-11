@@ -1,3 +1,5 @@
+#Availability Zones
+data "aws_availability_zones" "allzones" {}
 # VPC
 resource "aws_vpc" "terra_vpc" {
   cidr_block       = "${var.vpc_cidr}"
