@@ -1,8 +1,7 @@
 # Create a new load balancer
 resource "aws_elb" "terra-elb" {
-  name = "terra-elb"
+  name = "terra-elb-apache"
   availability_zones = ["${data.aws_availability_zones.allzones.names}"]
-  subnets = ["${aws_subnet.public.*.id}"]
   security_groups = ["${aws_security_group.packer_websg.id}"]
 
   listener {
