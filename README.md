@@ -1,7 +1,9 @@
 Pre-requisites:
 ------------------
   Install Java
+  
   Install Docker
+  
   Install Jenkins
   
 Step:1
