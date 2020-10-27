@@ -16,6 +16,9 @@ pipeline {
 	    		}
  		}
 		stage('Setup') {
+    			when {
+                	expression { params.action == 'create' }
+            		}			
             		steps {
                 		script {
                     			currentBuild.displayName = "#" + env.BUILD_NUMBER + " " + params.action + " apache-server"
@@ -85,4 +88,3 @@ pipeline {
 	}
     }
 }
-
